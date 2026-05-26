@@ -1,0 +1,42 @@
+button {
+padding:10px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+input {
+padding:10px;
+border:none;
+border-radius:10px;
+width:70%;
+}
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(to right,#4facfe,#00f2fe);
+    font-family: Arial;
+}
+
+.card{
+
+  width:320px;
+
+  padding:30px;
+
+  border-radius:20px;
+
+  text-align:center;
+
+  color:white;
+
+  background:rgba(255,255,255,0.2);
+
+  backdrop-filter:blur(10px);
+
+  box-shadow:0 0 20px rgba(0,0,0,0.2);
+}

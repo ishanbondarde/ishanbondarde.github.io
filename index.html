@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ishan Portfolio</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  
+
+<link rel = "stylesheet" href = "style.css">
+  
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">Ishan Bondarde</div>
+
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+
+  </nav>
+
+  <!-- HERO SECTION -->
+
+  <section class="hero">
+
+    <div class="hero-text">
+
+      <h3>👋 Hello, I'm</h3>
+
+      <h1>Ishan Bondarde</h1>
+
+      <p>
+        I am a passionate student developer learning
+        frontend web development using HTML, CSS,
+        and JavaScript.
+      </p>
+
+      <div class="skills">
+        HTML • CSS • JavaScript
+      </div>
+
+      <a href="#projects" class="btn">View Projects</a>
+
+      <a href="#contact" class="btn">Contact Me</a>
+
+    </div>
+
+    <div class="hero-image">
+
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="developer image">
+
+    </div>
+
+  </section>
+  
+  <section id="about">
+
+    <h2 class="title">About Me</h2>
+
+    <div class="about-box">
+
+      <p>
+        Hi! My name is Ishan and I am passionate about coding and design.
+        I started learning web development because I love creating things on the internet.
+        Currently I am learning JavaScript and improving my frontend skills.
+      </p>
+
+      <br>
+
+      <p>
+        Apart from coding, I also enjoy sketching anime characters,
+        playing games and learning new technology.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <h2 class="title">My Projects</h2>
+
+    <div class="projects">
+
+      <div class="card">
+        <i class="fa-solid fa-gamepad"></i>
+        <h3>ROCK PAPER SCISSORS GAME</h3>
+        <p>
+          A simple Rock,paper,Scissors game made using HTML, CSS and JavaScript.
+        </p> <br> 
+              <a href="projects/rps/game.html" target = "_blank" class="btn">Open Project</a>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-calculator"></i>
+        <h3>Math Quiz</h3>
+        <p>
+          A fun math quiz website with timer and score system. Enjoy!
+        </p> <br>
+              <a href="projects/puzzle/puzzle.html" target = "_blank" class="btn">Open Project</a>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-image"></i>
+        <h3> Weather App</h3>
+        <p>
+          A Weather App with India`s all states and cities weather of on-going days. 
+        </p> <br>
+              <a href="projects/weather/index.html" target = "_blank" class="btn">Open Project</a>
+        
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <h2 class="title">Contact</h2>
+
+    <div class="contact-box">
+
+      <p>Let's connect and build cool projects together.</p>
+
+      <div class="socials">
+
+        <a href="https://github.com/ishanbondarde" target = "_blank" ><i class="fa-brands fa-github"></i></a>
+
+        <a href="https://instagram.com/_ishan._.i7_" target = "_blank" ><i class="fa-brands fa-instagram"></i></a>
+
+        <a href="https://www.linkedin.com/in/ishan-bondarde/" target = "_blank" ><i class="fa-brands fa-linkedin"></i></a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 Ishan Portfolio | Made with ❤️
+  </footer>
+
+  <script>
+
+    // Small typing effect
+
+    const text = "Frontend Developer";
+    let i = 0;
+
+    function typing(){
+
+      if(i < text.length){
+
+        document.title = text.substring(0,i+1);
+
+        i++;
+
+        setTimeout(typing,200);
+
+      }
+
+    }
+
+    typing();
+  
+  </script>
+ <script src = "script.js"></script>
+</body>
+</html>
