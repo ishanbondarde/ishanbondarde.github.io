@@ -1,54 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<link rel = "stylesheet" href = "puzzle.css">
-<title> MATH Game   </title> 
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math Puzzle Challenge</title>
+<link href="https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="puzzle.css">
 </head>
-
 <body>
 
-<h1> </h1>
+<!-- Particles -->
+<div class="particles" id="particles"></div>
+<!-- Confetti -->
+<div class="confetti-container" id="confetti"></div>
 
-<p > Rules: <br>
-1.You have to solve the full game. <br>
-2.This is a Math game so you have to Add or Subtraact or Divide or Multiply. <br>
-3.You have to solve it in Horizontal and Vertical.<br> 
-</p>
+<div class="card">
+  <div class="badge">🧠 Math Challenge</div>
+  <h1>Number Puzzle</h1>
+  <p class="subtitle">Fill in the blanks. Horizontal &amp; vertical must work!</p>
 
-<div>
-<table >
-  <tr>
-    <th>3</th>
-    <th> <input type = "number" id="box1" > </th>
+  <div class="score-strip">
+    <div class="score-pill">🏆 Score <span id="scoreVal">0</span></div>
+    <div class="score-pill">🔥 Streak <span id="streakVal">0</span></div>
+    <div class="score-pill">💡 Hints <span id="hintVal">3</span></div>
+  </div>
+
+  <div class="rules">
+    <div class="rules-title">📋 How to Play</div>
+    <ol>
+      <li>Fill all four empty boxes.</li>
+      <li>Each row &amp; column must satisfy the math operation.</li>
+      <li>Operations: + − × ÷ all apply!</li>
+    </ol>
+  </div>
+
+  <div class="progress-row" id="progressDots">
+    <div class="dot" id="dot1"></div>
+    <div class="dot" id="dot2"></div>
+    <div class="dot" id="dot3"></div>
+    <div class="dot" id="dot4"></div>
+  </div>
+
+  <div class="grid-wrap">
+    <table>
+      <tr>
+        <th>3</th>
+        <th class="input-cell" id="cell1"><input type="number" id="box1" placeholder="?"></th>
         <th>10</th>
-  </tr>
-  
-  <tr>
-    <td> <input type = "number" id="box2"  > </td>
-    <td>3</td>
-        <td> <input type = "number" id="box3"  > </td>
-  </tr>
-  
-  
-  <tr>
-    <td>4</td>
-    <td> <input type = "number" id="box4"  > </td>
+      </tr>
+      <tr>
+        <td class="input-cell" id="cell2"><input type="number" id="box2" placeholder="?"></td>
+        <td>3</td>
+        <td class="input-cell" id="cell3"><input type="number" id="box3" placeholder="?"></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td class="input-cell" id="cell4"><input type="number" id="box4" placeholder="?"></td>
         <td>25</td>
-  </tr>
-  
-</table>
+      </tr>
+    </table>
+  </div>
 
-</div> <br>
+  <div class="btn-row">
+    <button class="btn btn-check" onclick="checkAnswer()">✅ Check Answer</button>
+    <button class="btn btn-hint"  onclick="giveHint()">💡 Hint</button>
+    <button class="btn btn-reset" onclick="resetGame()">🔄 Reset</button>
+  </div>
 
-<button onclick = "checkAnswer()">Check</button> <br>
+  <div id="Result"></div>
+</div>
 
-
-<h2 id="Result"> </h2>
-
-<script src = "puzzle.js"></script>
-
-
+<script src="puzzle.js"></script>
 </body>
 </html>
-
