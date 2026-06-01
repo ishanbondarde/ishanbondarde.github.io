@@ -1,39 +1,134 @@
+
 <!DOCTYPE html>
-<html>
-    <head>
-
-        <title>  WEATHER   </title>
-
-        <link rel = "stylesheet" href = "style.css">
-
-    </head>
-
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkyVault — Weather</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
-
-<div class="card">
-<h1>  Weather App  </h1>
-
-<input type ="text" id="city"
-placeholder="Enter city">
-
-<button onclick = "getWeather()">
-    Search
-</button>
-
-<img id="icon">
-
-<h2 id="temp"></h2>
-
-<h3 id="condition" ></h3>
-
-<p  id="humidity" ></p>
-
-<p  id="wind" ></p>
-
-<p   id="time" ></p>
-
-
-</div>
-<script src = "script.js"> </script>
+ 
+  <!-- Animated background -->
+  <div class="bg">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="pt" id="pt"></div>
+ 
+  <div class="shell">
+ 
+    <header style="text-align:center">
+      <div class="logo">SKY<span>VAULT</span></div>
+      <div class="tagline">Live Atmospheric Intel</div>
+    </header>
+ 
+    <div class="card">
+ 
+      <!-- Search -->
+      <div class="search-wrap" id="searchWrap">
+        <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input id="city" type="text" placeholder="Search any city…" autocomplete="off"
+               onkeydown="if(event.key==='Enter')getWeather()">
+        <button class="btn-go" onclick="getWeather()">
+          <span id="goTxt">GO</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </button>
+      </div>
+ 
+      <!-- Empty state -->
+      <div class="empty" id="emptyState">
+        <div class="empty-icon">🌍</div>
+        <p>Enter a city to get<br>real-time weather</p>
+      </div>
+ 
+      <!-- Result -->
+      <div class="result hidden" id="result">
+        <div class="loc-row">
+          <div>
+            <div class="city-name" id="cityName"></div>
+            <div class="local-time" id="localTime"></div>
+          </div>
+          <img class="w-icon" id="wIcon" src="" alt="">
+        </div>
+ 
+        <div class="temp-row">
+          <div class="temp-val" id="tempVal"></div>
+          <div class="toggles">
+            <button class="u-btn on" id="btnC" onclick="setUnit('C')">°C</button>
+            <button class="u-btn" id="btnF" onclick="setUnit('F')">°F</button>
+          </div>
+        </div>
+ 
+        <div class="badge" id="condBadge"></div>
+ 
+        <div class="grid">
+          <div class="stat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+            <div class="s-label">Humidity</div>
+            <div class="s-val" id="sHumidity"></div>
+          </div>
+          <div class="stat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/>
+            </svg>
+            <div class="s-label">Wind</div>
+            <div class="s-val" id="sWind"></div>
+          </div>
+          <div class="stat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
+            </svg>
+            <div class="s-label">Feels Like</div>
+            <div class="s-val" id="sFeels"></div>
+          </div>
+          <div class="stat">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <div class="s-label">UV Index</div>
+            <div class="s-val" id="sUV"></div>
+          </div>
+        </div>
+ 
+        <button class="btn-refresh" onclick="getWeather()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="23 4 23 10 17 10"/>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+          </svg>
+          Refresh
+        </button>
+      </div>
+ 
+      <!-- Error -->
+      <div class="err hidden" id="errState">
+        <div style="font-size:1.8rem">⚠️</div>
+        <p id="errMsg">City not found.</p>
+      </div>
+ 
+    </div>
+ 
+    <div class="footer">Powered by WeatherAPI · Real-time data</div>
+  </div>
+ 
+  <script src="script.js"></script>
 </body>
 </html>
+ 
