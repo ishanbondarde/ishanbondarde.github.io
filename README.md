@@ -13,15 +13,6 @@ My personal portfolio website built to showcase my projects, skills, and experie
 - JavaScript
 - GitHub Pages
 
-## Run Locally
-
-```bash
-git clone https://github.com/ishanbondarde/ishanbondarde.github.io.git
-cd ishanbondarde.github.io
-```
-
-Open `index.html` in your browser.
-
 ## Features
 
 - Responsive Design
@@ -32,6 +23,6 @@ Open `index.html` in your browser.
 
 ## Author
 
-Ishan Bondarde
+Ishan Vishal Bondarde
 
 GitHub: https://github.com/ishanbondarde
